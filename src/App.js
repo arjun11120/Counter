@@ -1,17 +1,15 @@
+import './App.css';
+import Counter from './counter'
 import {useState} from 'react'
-import './App.css'
 
 function App() {
-  const [count,setCount] = useState(0)
-  let addCount =()=>{
-    setCount(count+1)
-    console.log(count);
-  }
+  const [state,setState] = useState(false) 
+  
   return (
-    <div className='App'>
-      <button onClick={addCount}>Add</button>
-      <h1>Counter: {count}</h1>
+    <div>
+      <button onClick={()=>setState(!state)}>show or hide</button>
+      {state ? <Counter/> :null}
     </div>
-  );
+  )              
 }
 export default App;
